@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, MapPin, Percent } from "lucide-react"
+import { Avatar, AvatarImage, AvatarFallback, AvatarGroup } from "@/components/ui/avatar"
 
 export default function Hero() {
     return (
@@ -22,11 +23,14 @@ export default function Hero() {
                         </Button>
 
                         <div className="flex items-center gap-3 p-2 px-5 rounded-full bg-slate-50 border border-slate-200">
-                            <div className="flex -space-x-3">
+                            <AvatarGroup>
                                 {[1, 2, 3].map(i => (
-                                    <img key={i} className="w-10 h-10 rounded-full border-2 border-white shadow-sm" src={`https://i.pravatar.cc/100?img=${i + 15}`} alt="avatar" />
+                                    <Avatar key={i} size="lg" className="border-2 border-white">
+                                        <AvatarImage src={`https://i.pravatar.cc/100?img=${i + 15}`} />
+                                        <AvatarFallback>U{i}</AvatarFallback>
+                                    </Avatar>
                                 ))}
-                            </div>
+                            </AvatarGroup>
                             <div className="w-[1px] h-8 bg-slate-200 mx-2"></div>
                             <button className="flex items-center gap-2 group">
                                 <div className="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -37,6 +41,7 @@ export default function Hero() {
                         </div>
                     </div>
                 </div>
+
 
                 <div className="relative mx-auto max-w-6xl px-4">
                     <motion.div

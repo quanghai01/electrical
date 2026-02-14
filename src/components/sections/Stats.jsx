@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { ArrowUpRight } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card"
 
 export default function Stats() {
     return (
@@ -51,10 +51,14 @@ function StatItem({ value, label }) {
     return (
         <motion.div
             whileHover={{ y: -5 }}
-            className="p-8 rounded-3xl bg-slate-50 border flex flex-col items-center justify-center text-center group transition-colors hover:bg-white"
         >
-            <span className="text-4xl font-extrabold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">{value}</span>
-            <span className="text-sm font-medium text-slate-500">{label}</span>
+            <Card className="border-slate-100 bg-slate-50 hover:bg-white transition-colors rounded-3xl overflow-hidden group">
+                <CardContent className="p-8 flex flex-col items-center justify-center text-center">
+                    <span className="text-4xl font-extrabold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors uppercase">{value}</span>
+                    <span className="text-sm font-medium text-slate-500">{label}</span>
+                </CardContent>
+            </Card>
         </motion.div>
     )
 }
+

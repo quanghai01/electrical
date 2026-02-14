@@ -1,5 +1,7 @@
 import { motion } from "framer-motion"
 import { Quote } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card"
+import { Avatar, AvatarImage, AvatarFallback, AvatarBadge } from "@/components/ui/avatar"
 
 export default function Testimonials() {
     return (
@@ -45,22 +47,27 @@ function TestimonialCard({ author, role, text, img, bgColor, textColor }) {
     return (
         <motion.div
             whileHover={{ y: -8 }}
-            className={`p-10 md:p-12 rounded-[3rem] ${bgColor} ${textColor} shadow-2xl border border-slate-100 relative overflow-hidden group transition-all duration-300`}
         >
-            <Quote className={`absolute top-10 right-10 w-24 h-24 opacity-5 -rotate-12 group-hover:rotate-0 transition-transform duration-500`} />
-            <div className="flex items-center gap-5 mb-8">
-                <div className="relative">
-                    <img src={img} alt={author} className="w-16 h-16 rounded-full border-4 border-blue-500/20 object-cover" />
-                    <div className="absolute -bottom-1 -right-1 bg-blue-600 rounded-full p-1.5 border-2 border-white">
-                        <Quote className="w-2 h-2 text-white fill-white" />
+            <Card className={`${bgColor} ${textColor} border-slate-100 rounded-[3rem] overflow-hidden group shadow-2xl transition-all duration-300`}>
+                <CardContent className="p-10 md:p-12 relative">
+                    <Quote className="absolute top-10 right-10 w-24 h-24 opacity-5 -rotate-12 group-hover:rotate-0 transition-transform duration-500" />
+                    <div className="flex items-center gap-5 mb-8">
+                        <Avatar size="lg" className="size-16 border-4 border-blue-500/20">
+                            <AvatarImage src={img} alt={author} className="object-cover" />
+                            <AvatarFallback>{author[0]}</AvatarFallback>
+                            <AvatarBadge className="bg-blue-600 size-5 border-2 border-white">
+                                <Quote className="size-2 text-white fill-white" />
+                            </AvatarBadge>
+                        </Avatar>
+                        <div>
+                            <h4 className="font-black text-xl tracking-tight">{author}</h4>
+                            <p className="text-[12px] font-bold opacity-50 uppercase tracking-[0.2em]">{role}</p>
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <h4 className="font-black text-xl tracking-tight">{author}</h4>
-                    <p className="text-[12px] font-bold opacity-50 uppercase tracking-[0.2em]">{role}</p>
-                </div>
-            </div>
-            <p className="text-xl font-medium leading-relaxed italic opacity-90">"{text}"</p>
+                    <p className="text-xl font-medium leading-relaxed italic opacity-90">"{text}"</p>
+                </CardContent>
+            </Card>
         </motion.div>
     )
 }
+

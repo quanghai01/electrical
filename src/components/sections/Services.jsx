@@ -1,6 +1,8 @@
 import { motion } from "framer-motion"
 import { Search, Info, Map, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 
 const services = [
     {
@@ -40,10 +42,10 @@ export default function Services() {
             <div className="container mx-auto px-4 relative z-10 max-w-7xl">
                 <div className="text-center mb-24">
                     <div className="flex justify-center mb-6">
-                        <div className="bg-blue-50 border border-blue-100 p-2 px-6 rounded-full flex items-center gap-2 shadow-sm">
+                        <Badge variant="outline" className="bg-blue-50 border-blue-100 p-2 px-6 rounded-full flex items-center gap-2 shadow-sm pointer-events-none">
                             <Zap className="w-4 h-4 text-blue-600 fill-blue-600" />
                             <span className="text-[12px] font-black uppercase tracking-[0.2em] text-blue-700">Best Services</span>
-                        </div>
+                        </Badge>
                     </div>
                     <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight">
                         Unlocking the Power of EV Charging
@@ -106,17 +108,20 @@ function ServiceCard({ icon, title, desc, align }) {
             initial={{ opacity: 0, x: align === 'right' ? -20 : 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className={`p-6 rounded-3xl bg-slate-50 border hover:shadow-lg transition-all group ${align === 'right' ? 'lg:text-right' : 'lg:text-left'}`}
+            className="group"
         >
-            <div className={`flex flex-col ${align === 'right' ? 'lg:items-end' : 'lg:items-start'} gap-4`}>
-                <div className="p-3 bg-white rounded-2xl shadow-sm group-hover:scale-110 transition-transform">
-                    {icon}
-                </div>
-                <div>
-                    <h3 className="text-xl font-bold mb-2">{title}</h3>
-                    <p className="text-slate-500 text-sm leading-relaxed">{desc}</p>
-                </div>
-            </div>
+            <Card className={`bg-slate-50 border-slate-100 hover:shadow-lg transition-all rounded-3xl overflow-hidden ${align === 'right' ? 'lg:text-right' : 'lg:text-left'}`}>
+                <CardContent className={`p-6 flex flex-col ${align === 'right' ? 'lg:items-end' : 'lg:items-start'} gap-4`}>
+                    <div className="p-3 bg-white rounded-2xl shadow-sm group-hover:scale-110 transition-transform">
+                        {icon}
+                    </div>
+                    <div>
+                        <h3 className="text-xl font-bold mb-2 text-slate-900">{title}</h3>
+                        <p className="text-slate-500 text-sm leading-relaxed">{desc}</p>
+                    </div>
+                </CardContent>
+            </Card>
         </motion.div>
     )
 }
+
