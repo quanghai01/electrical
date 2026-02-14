@@ -5,21 +5,24 @@ export default function Newsletter() {
     return (
         <section className="py-24 bg-white">
             <div className="container mx-auto px-4">
-                <div className="max-w-4xl mx-auto rounded-[3rem] bg-slate-50 border p-8 md:p-16 text-center relative overflow-hidden">
+                <div className="max-w-5xl mx-auto rounded-[3.5rem] bg-slate-900 p-12 md:p-24 text-center relative overflow-hidden shadow-2xl">
                     <div className="relative z-10">
-                        <h2 className="text-3xl md:text-5xl font-bold mb-4">Let's Stay In Touch</h2>
-                        <p className="text-slate-500 mb-8">
+                        <h2 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight">Let's Stay In Touch</h2>
+                        <p className="text-slate-400 mb-12 text-lg max-w-xl mx-auto font-medium leading-relaxed">
                             Subscribe to our newsletter for updates on latest charging stations, EV news, and special offers.
                         </p>
-                        <div className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto bg-white p-2 rounded-2xl shadow-sm border">
+                        <div className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto bg-white/10 backdrop-blur-md p-3 rounded-3xl border border-white/10">
                             <input
                                 type="email"
                                 placeholder="Enter your email"
-                                className="flex-1 px-4 py-2 outline-none rounded-xl"
+                                className="flex-1 px-6 py-4 outline-none rounded-2xl bg-transparent text-white placeholder:text-slate-400 font-bold"
                             />
-                            <Button className="rounded-xl px-8 bg-blue-600 hover:bg-blue-700">Subscribe</Button>
+                            <Button className="rounded-2xl px-10 h-14 bg-blue-600 hover:bg-blue-700 text-sm font-black uppercase tracking-widest shadow-xl shadow-blue-900/40 transition-all active:scale-95">
+                                Subscribe
+                            </Button>
                         </div>
                     </div>
+
 
                     {/* Floating decorative images as seen in the mockup */}
                     <img

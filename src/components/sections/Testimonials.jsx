@@ -4,15 +4,15 @@ import { Quote } from "lucide-react"
 export default function Testimonials() {
     return (
         <section className="py-24 bg-slate-50 relative">
-            <div className="container mx-auto px-4">
+            <div className="container mx-auto px-4 max-w-7xl">
                 <div className="text-center mb-16 px-4">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">Hear from Our Drivers</h2>
-                    <p className="text-slate-500 max-w-lg mx-auto">
+                    <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight">Hear from Our Drivers</h2>
+                    <p className="text-slate-500 max-w-lg mx-auto text-lg font-medium leading-relaxed">
                         Discover real stories and experiences from our dedicated community of electric vehicle drivers.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
                     <TestimonialCard
                         author="Sarah J."
                         role="Tesla Model 3 Owner"
@@ -44,18 +44,23 @@ export default function Testimonials() {
 function TestimonialCard({ author, role, text, img, bgColor, textColor }) {
     return (
         <motion.div
-            whileHover={{ y: -5 }}
-            className={`p-10 rounded-[2.5rem] ${bgColor} ${textColor} shadow-xl border relative overflow-hidden group`}
+            whileHover={{ y: -8 }}
+            className={`p-10 md:p-12 rounded-[3rem] ${bgColor} ${textColor} shadow-2xl border border-slate-100 relative overflow-hidden group transition-all duration-300`}
         >
-            <Quote className={`absolute top-8 right-8 w-12 h-12 opacity-10`} />
-            <div className="flex items-center gap-4 mb-6">
-                <img src={img} alt={author} className="w-14 h-14 rounded-full border-2 border-blue-500 p-0.5" />
+            <Quote className={`absolute top-10 right-10 w-24 h-24 opacity-5 -rotate-12 group-hover:rotate-0 transition-transform duration-500`} />
+            <div className="flex items-center gap-5 mb-8">
+                <div className="relative">
+                    <img src={img} alt={author} className="w-16 h-16 rounded-full border-4 border-blue-500/20 object-cover" />
+                    <div className="absolute -bottom-1 -right-1 bg-blue-600 rounded-full p-1.5 border-2 border-white">
+                        <Quote className="w-2 h-2 text-white fill-white" />
+                    </div>
+                </div>
                 <div>
-                    <h4 className="font-bold">{author}</h4>
-                    <p className="text-sm opacity-60">{role}</p>
+                    <h4 className="font-black text-xl tracking-tight">{author}</h4>
+                    <p className="text-[12px] font-bold opacity-50 uppercase tracking-[0.2em]">{role}</p>
                 </div>
             </div>
-            <p className="text-lg leading-relaxed">{text}</p>
+            <p className="text-xl font-medium leading-relaxed italic opacity-90">"{text}"</p>
         </motion.div>
     )
 }

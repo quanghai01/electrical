@@ -4,50 +4,47 @@ import { ArrowUpRight } from "lucide-react"
 
 export default function Stats() {
     return (
-        <section className="py-20 bg-slate-50">
-            <div className="container mx-auto px-4">
-                <div className="bg-white rounded-[3rem] p-8 md:p-16 shadow-sm border overflow-hidden relative">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        <div>
-                            <span className="text-blue-600 font-bold text-sm uppercase mb-4 block">About Station Hub</span>
-                            <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+        <section className="py-24 bg-white">
+            <div className="container mx-auto px-4 max-w-7xl">
+                {/* Eco-Friendly Image & Text Block */}
+                <div className="bg-slate-50 rounded-[3rem] overflow-hidden border border-slate-100 shadow-sm mb-12">
+                    <div className="flex flex-col lg:flex-row">
+                        <div className="lg:w-1/2 relative h-[400px] lg:h-auto">
+                            <img
+                                src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&q=80&w=1000"
+                                alt="Eco Friendly Charging"
+                                className="absolute inset-0 w-full h-full object-cover"
+                            />
+                        </div>
+                        <div className="lg:w-1/2 p-8 md:p-16 flex flex-col justify-center">
+                            <span className="text-blue-600 font-black text-[12px] uppercase tracking-[0.2em] mb-6 block">About Station Hub</span>
+                            <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-8 tracking-tight leading-[1.1]">
                                 Live Eco-Friendly. <br />
-                                <span className="text-blue-600 italic underline decoration-blue-200">Go Green!</span>
+                                <span className="text-blue-600 italic">Go Green!</span>
                             </h2>
-                            <p className="text-slate-500 mb-8 max-w-lg leading-relaxed">
-                                Effortlessly find electric vehicle charging stations near you with Station Hub's intuitive and real-time station finder.
+                            <p className="text-slate-500 mb-10 text-lg font-medium leading-relaxed max-w-md">
+                                Effortlessly locate electric vehicle charging stations near you with our intuitive and real-time station finder.
                             </p>
 
-                            <div className="flex flex-wrap gap-4">
-                                <Button size="lg" className="rounded-full px-8 bg-slate-900 gap-2">
-                                    Contact Us <ArrowUpRight className="w-4 h-4" />
+                            <div className="flex flex-wrap gap-6 items-center">
+                                <Button size="lg" className="rounded-full px-10 h-14 bg-slate-900 hover:bg-slate-800 text-sm font-bold shadow-lg">
+                                    Contact Us
                                 </Button>
-                                <div className="flex -space-x-3">
-                                    {[1, 2, 3, 4].map(i => (
-                                        <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
-                                            <img src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="avatar" />
-                                        </div>
-                                    ))}
-                                    <div className="w-10 h-10 rounded-full border-2 border-white bg-blue-100 flex items-center justify-center text-[10px] font-bold text-blue-600">
-                                        5k+
-                                    </div>
-                                </div>
                             </div>
                         </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <StatItem value="9+" label="Years of Experience" />
-                            <StatItem value="50+" label="Service Stations" />
-                            <StatItem value="15K+" label="Positive Reviews" />
-                        </div>
                     </div>
+                </div>
 
-                    {/* Abstract background shape */}
-                    <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[500px] h-[500px] rounded-full bg-blue-50/50 -z-0"></div>
+                {/* Stats Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <StatItem value="9+" label="Years of Experience" />
+                    <StatItem value="50+" label="Service Stations" />
+                    <StatItem value="15K+" label="Positive Reviews" />
                 </div>
             </div>
         </section>
     )
+
 }
 
 function StatItem({ value, label }) {

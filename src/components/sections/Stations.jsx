@@ -11,13 +11,14 @@ const stations = [
 export default function Stations() {
     return (
         <section className="py-24 bg-white">
-            <div className="container mx-auto px-4">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">Best stations near to you</h2>
-                    <p className="text-slate-500 max-w-lg mx-auto">
+            <div className="container mx-auto px-4 max-w-7xl">
+                <div className="text-center mb-16 px-4">
+                    <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight">Best stations near to you</h2>
+                    <p className="text-slate-500 max-w-lg mx-auto text-lg font-medium leading-relaxed">
                         Discover the highest-rated charging stations in your area, rated by our community of EV drivers.
                     </p>
                 </div>
+
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     {stations.map((s, i) => (

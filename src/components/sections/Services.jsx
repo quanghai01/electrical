@@ -26,56 +26,68 @@ const services = [
 
 export default function Services() {
     return (
-        <section className="py-24 bg-white relative overflow-hidden">
-            {/* Background Map Decoration */}
-            <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
-                <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M100 100h800v800h-800z" fill="currentColor" />
-                </svg>
+        <section className="py-32 bg-white relative overflow-hidden">
+            {/* World Map Background */}
+            <div className="absolute inset-0 opacity-[0.05] pointer-events-none select-none">
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg"
+                    className="w-full h-full object-contain scale-150"
+                    alt="map"
+                />
             </div>
 
-            <div className="container mx-auto px-4 relative z-10">
-                <div className="text-center mb-16">
-                    <div className="flex justify-center mb-4">
-                        <div className="bg-slate-100 p-2 px-4 rounded-full flex items-center gap-2">
+            <div className="container mx-auto px-4 relative z-10 max-w-7xl">
+                <div className="text-center mb-24">
+                    <div className="flex justify-center mb-6">
+                        <div className="bg-blue-50 border border-blue-100 p-2 px-6 rounded-full flex items-center gap-2 shadow-sm">
                             <Zap className="w-4 h-4 text-blue-600 fill-blue-600" />
-                            <span className="text-sm font-bold uppercase tracking-wider">Best Services</span>
+                            <span className="text-[12px] font-black uppercase tracking-[0.2em] text-blue-700">Best Services</span>
                         </div>
                     </div>
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">Unlocking the Power of EV Charging</h2>
-                    <p className="text-slate-500 max-w-2xl mx-auto">
-                        Our platform provides comprehensive solutions for all your electric vehicle charging needs.
+                    <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight">
+                        Unlocking the Power of EV Charging
+                    </h2>
+                    <p className="text-slate-500 max-w-2xl mx-auto text-lg font-medium leading-relaxed">
+                        Effortlessly locate electric vehicle charging stations near you <br className="hidden md:block" />
+                        with our intuitive search and real-time news updates.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 items-center gap-12">
+                <div className="grid grid-cols-1 lg:grid-cols-3 items-center gap-16 xl:gap-24">
                     {/* Left Cards */}
-                    <div className="space-y-8">
+                    <div className="space-y-12">
                         {services.slice(0, 2).map((s, i) => (
                             <ServiceCard key={i} {...s} align="right" />
                         ))}
                     </div>
 
-                    {/* Central Image */}
-                    <div className="flex justify-center">
+                    {/* Central Image - Charging Station */}
+                    <div className="flex justify-center order-first lg:order-none mb-12 lg:mb-0">
                         <motion.div
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             className="relative"
                         >
-                            <div className="bg-gradient-to-b from-blue-50 to-transparent p-4 rounded-full">
+                            <div className="bg-gradient-to-b from-blue-50/50 to-transparent p-6 rounded-full">
                                 <img
-                                    src="https://images.unsplash.com/photo-1695653422715-991ec3a0db7a?auto=format&fit=crop&q=80&w=400"
-                                    alt="Charger"
-                                    className="w-full max-w-[300px] mx-auto rounded-3xl shadow-xl"
+                                    src="https://images.unsplash.com/photo-1695653422715-991ec3a0db7a?auto=format&fit=crop&q=80&w=600"
+                                    alt="EV Charger"
+                                    className="w-full max-w-[340px] mx-auto rounded-[2rem] shadow-2xl border-4 border-white"
                                 />
+                            </div>
+
+                            {/* Decorative Button below central image as seen in mockup */}
+                            <div className="absolute -bottom-8 left-1/2 -translate-x-1/2">
+                                <Button className="rounded-full bg-blue-600 hover:bg-blue-700 px-8 h-12 shadow-xl shadow-blue-200 font-bold whitespace-nowrap">
+                                    Find a station
+                                </Button>
                             </div>
                         </motion.div>
                     </div>
 
                     {/* Right Cards */}
-                    <div className="space-y-8">
+                    <div className="space-y-12">
                         {services.slice(2, 4).map((s, i) => (
                             <ServiceCard key={i} {...s} align="left" />
                         ))}
@@ -84,6 +96,7 @@ export default function Services() {
             </div>
         </section>
     )
+
 }
 
 function ServiceCard({ icon, title, desc, align }) {
